@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create an Account</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .form-container {
+      max-width: 400px;
+      margin: 50px auto;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-container h2 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .form-container label {
+      display: block;
+      font-size: 1em;
+      margin: 10px 0 5px;
+      color: #fff;
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #e0e0e0;
+      color: #333;
+    }
+
+    .form-container .button {
+      width: 100%;
+      font-size: 1em;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-container .button:hover {
+      background-color: #45a049;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 10px;
+    }
+
+    #return-home-button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Create an Account</h2>
+    <form id="signup-form">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      <button type="submit" class="button">Sign Up</button>
+    </form>
+    <p class="error" id="error-message"></p>
+  </div>
+
+  <button id="return-home-button" class="home-button">Return to Home</button>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (!username || !password) {
+        document.getElementById('error-message').textContent = 'Please provide both username and password.';
+        return;
+      }
+
+      const formData = { username, password };
+
+      fetch('http://localhost:3000/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message === 'Account created successfully!') {
+          alert('Account created successfully!');
+          localStorage.setItem('recentUsername', username);
+        } else {
+          document.getElementById('error-message').textContent = data.message;
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        document.getElementById('error-message').textContent = 'Error connecting to the server. Please try again.';
+      });
+    });
+
+    document.getElementById('return-home-button').addEventListener('click', function() {
+      window.location.href = 'Chessify.html';
+    });
+  </script>
+</body>
+</html>

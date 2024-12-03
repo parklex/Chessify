@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chessify</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Chessify</h1>
+
+    <div class="game-container">
+        <div id="black-controls" class="side-controls">
+            <button id="black-double-turn" class="double-turn-button">Black Double Turn</button>
+            <button id="black-knight-blessing" class="blessing-button">Black Knight's Blessing</button>
+            
+
+        </div>
+    
+        <div id="gameboard"></div>
+    
+        <div id="white-controls" class="side-controls">
+            <button id="white-double-turn" class="double-turn-button">White Double Turn</button>
+            <button id="white-knight-blessing" class="blessing-button">White Knight's Blessing</button>
+        </div>
+    </div>
+
+<div class="return-container">
+    <button class="button return-home" onclick="location.href='Chessify.html'">Return to Home</button>
+</div>
+
+    <div class="bars">
+        <p class="turnbar">It Is <span id="player"></span>'s Turn.</p>
+        <p class="infobar" id="info-display"></p>
+        <p class="errbar" id="err"></p>
+    </div>
+
+    <!-- Bottom controls -->
+    <div class="bottom-controls">
+        <button id="black-forfeit" class="forfeit-button">Black Forfeit</button>
+        <button id="white-forfeit" class="forfeit-button">White Forfeit</button>
+    </div>
+
+    <script src="pieces.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

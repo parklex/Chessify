@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chessify Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .skins-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .skin-card {
+            background: rgba(255, 255, 255, 0.1); /* Light transparent white */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            width: 200px; /* Fixed card width */
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+        }
+
+        .skin-card img {
+            width: 100%; /* Scales image to fit the card width */
+            height: 150px; /* Fixed height for consistency */
+            object-fit: cover; /* Ensures the image is cropped properly */
+            border-radius: 10px;
+        }
+
+        .skin-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="Chessify.html" class="home-button">Return to Home</a>
+        <h1>Welcome to the Chessify Store</h1>
+        <p>Upgrade your chess experience with exclusive skins!</p>
+    </header>
+    <main>
+        <section class="store-section">
+            <h2>Anime Skins</h2>
+            <div class="skins-container">
+                <div class="skin-card">
+                    <img src="images/anime-skin1.png" alt="Anime Skin 1">
+                    <h3>One Piece</h3>
+                    <p>$5.99</p>
+                    <button class="blessing-button">Buy Now</button>
+                </div>
+                <div class="skin-card">
+                    <img src="images/anime-skin2.jpg" alt="Anime Skin 2">
+                    <h3>Dragon Ball Z</h3>
+                    <p>$4.99</p>
+                    <button class="blessing-button">Buy Now</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        &copy; 2024 Chessify Store. All rights reserved.
+    </footer>
+</body>
+</html>

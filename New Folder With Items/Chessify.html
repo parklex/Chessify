@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chessify</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+</head>
+<body>
+
+<!-- ==== Header Section ==== -->
+<header>
+    Chessify
+</header>
+
+<!-- ==== XP Bar Section ==== -->
+<div class="xp-container">
+
+    <div class="xp-info">
+        <span class="level">Level: 1</span>
+        <span class="xp-text">0/100 XP</span>
+    </div>
+	
+	<div class="xp-bar">
+        <div class="xp-progress"></div>
+    </div>
+</div>
+
+<!-- ==== Main Content Section ==== -->
+<div class="container">
+    <div class="chessboard"></div>
+</div>
+<div class="container">
+    <img src="images/chesslogo.jpeg" alt="Chessify Logo" class="chess-logo">
+    <div class="chessboard"></div>
+    <!-- Updated Play Now Button -->
+    <button class="button play-online" onclick="location.href='index.html'">
+        <span class="tooltip">Play Now</span>
+    </button>
+    <!-- <button onclick="window.location.href='Account.html'">Login / Sign Up</button> -->
+
+    <button class="button play-offline" onclick="location.href=''"></button>
+</div>
+    
+
+
+<!-- ==== Profile Section ==== -->
+<div class="profile-container" onclick="toggleDropdown()">
+    <img src="images/axolotl.png" alt="Profile Picture">
+</div>
+
+<!-- ==== Dropdown Menu Section ==== -->
+<div class="dropdown" id="dropdownMenu">
+    <a href="#">Account</a>
+    <a href="#">Inventory</a>
+    <a href="#">Battle Pass</a>
+    <a href="store.html">Store</a> <!-- New Store link -->
+    <a href="Account.html">Signup</a>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const recentUsername = localStorage.getItem('recentUsername');
+      if (recentUsername) {
+        const usernameDisplay = document.createElement('div');
+        usernameDisplay.textContent = `Welcome, ${recentUsername}!`;
+        usernameDisplay.style.fontSize = '20px';
+        usernameDisplay.style.marginTop = '10px';
+  
+        // Place it in a desired location, e.g., below the header
+        const header = document.querySelector('header');
+        header.insertAdjacentElement('afterend', usernameDisplay);
+      }
+    });
+  </script>
+  
+
+
+
+<!-- ==== Footer Section ==== -->
+<footer>
+    &copy; 2024 Chessify and Group One, COSC412. All Rights Reserved.
+</footer>
+
+<script src="scripts.js"></script> <!-- Link to the external JS file -->
+
+</body>
+</html>
